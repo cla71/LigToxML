@@ -1,1 +1,83 @@
-# predTOX
+# AF3/PDB Off-target Screening (local-first)
+
+This repository contains a minimal, file-first pipeline for screening compound batches against the FoldBench/AlphaFold3 target panel using local structures only. The implementation mirrors the steps described in the prompt: build a protein–ligand panel from FoldBench CSVs, download PDB assemblies, derive reproducible pockets from native ligands, and run a lightweight docking mock to produce ranked off-target hits.
+
+## Repository layout
+```
+af3_offtarget_panel/
+  pyproject.toml        # installable project (Typer CLI entrypoint: `af3-panel`)
+  config/default.yaml   # sample paths for data and outputs
+  data/                 # expected local data layout (empty placeholders)
+    foldbench/
+      alphafold3_foldbench_target_list.csv
+      alphafold3_foldbench_protein_ligand_interfaces.csv
+      alphafold3_foldbench_antibody_antigen_interfaces.csv
+    structures/
+      pdb_assemblies/
+      af3_models/
+    pockets/
+    results/
+  inputs/
+    compounds.smi / compounds.sdf
+  src/
+    cli.py              # Typer CLI commands
+    panel/              # panel construction utilities
+    structures/         # PDB downloader
+    pockets/            # pocket builder from native ligands
+    docking/            # mock docking/scoring + CSV outputs
+```
+
+## Installation
+The project is packaged with a `pyproject.toml`. Install locally (optionally with RDKit for SMILES/SDF parsing):
+
+```bash
+cd af3_offtarget_panel
+pip install -e .[chem]
+```
+
+If RDKit is unavailable, the mock docking still works for SMILES input and will skip SDF parsing.
+
+## CLI workflows
+
+All commands live under the `af3-panel` Typer app (or `python -m src.cli` when running from the repository checkout).
+
+1. **Build the target panel** (protein–ligand tasks only):
+   ```bash
+   af3-panel build-panel \
+     --foldbench-dir data/foldbench \
+     --out data/foldbench/panel_targets.csv
+   ```
+
+2. **Fetch PDB assemblies locally** (skips existing files):
+   ```bash
+   af3-panel fetch-structures \
+     --panel data/foldbench/panel_targets.csv \
+     --outdir data/structures/pdb_assemblies
+   ```
+
+3. **Build pockets from native ligands** (distance-based residue sets + docking box around ligand centroid):
+   ```bash
+   af3-panel build-pockets \
+     --interfaces data/foldbench/alphafold3_foldbench_protein_ligand_interfaces.csv \
+     --pdb-dir data/structures/pdb_assemblies \
+     --outdir data/pockets
+   ```
+
+4. **Screen compounds** (mock docking/scoring; supports SMILES or RDKit-backed SDF):
+   ```bash
+   af3-panel screen \
+     --compounds inputs/compounds.smi \
+     --pockets data/pockets \
+     --receptor-mode pdb \
+     --out results/run_001
+   ```
+
+Outputs land in `results/run_xxx/off_target_hits.csv` plus per-target JSON details. Replace `--receptor-mode` with `af3_or_pdb` when you have locally cached AF3 models and want to prioritize them.
+
+## Notes on structure sources
+- PDB assemblies are downloaded from RCSB using the assembly ID; an existing file will be reused.
+- AF3 models are treated as alternate receptor geometries when present locally (expected under `data/structures/af3_models`).
+
+## Mock docking rationale
+The pipeline ships with a deterministic placeholder scorer so it is fully self-contained. The scoring hook lives in `src/docking/screen.py` and can be swapped for Vina/Smina/Gnina subprocess calls without touching the CLI interface.
+
