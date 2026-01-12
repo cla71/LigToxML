@@ -1,0 +1,27 @@
+[project]
+name = "af3-offtarget-panel"
+version = "0.1.0"
+description = "Local-first AF3/PDB off-target screening pipeline"
+authors = [{ name = "PredTOX" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "typer[all]>=0.12.0",
+  "pandas>=2.1.0",
+  "requests>=2.31.0",
+  "tqdm>=4.66.0",
+  "pyyaml>=6.0.0",
+  "biopython>=1.84"
+]
+
+[project.optional-dependencies]
+chem = [
+  "rdkit-pypi>=2023.9.6"
+]
+
+[project.scripts]
+af3-panel = "src.cli:app"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
