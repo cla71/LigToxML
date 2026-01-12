@@ -1,0 +1,3 @@
+pdb_assembly_id,protein_chain_id,ligand_id,ligand_chain_id,ligand_resseq
+MOCK1,A,LIG,A,900
+MOCK2,A,FAK,A,700

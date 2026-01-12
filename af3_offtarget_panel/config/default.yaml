@@ -1,0 +1,15 @@
+foldbench:
+  target_list: data/foldbench/alphafold3_foldbench_target_list.csv
+  protein_ligand_interfaces: data/foldbench/alphafold3_foldbench_protein_ligand_interfaces.csv
+  antibody_antigen_interfaces: data/foldbench/alphafold3_foldbench_antibody_antigen_interfaces.csv
+panel:
+  output: data/foldbench/panel_targets.csv
+structures:
+  pdb_dir: data/structures/pdb_assemblies
+  af3_dir: data/structures/af3_models
+pockets:
+  output_dir: data/pockets
+screen:
+  compounds: inputs/compounds.smi
+  receptor_mode: pdb
+  output_dir: results/run_000

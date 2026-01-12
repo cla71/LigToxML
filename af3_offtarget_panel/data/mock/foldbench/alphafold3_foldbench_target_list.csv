@@ -1,0 +1,4 @@
+pdb_assembly_id,tasks,target_name
+MOCK1,interface_protein_ligand;interface_ppi,Mock kinase complex
+MOCK2,interface_protein_ligand,Mock receptor missing structure
+MOCK3,interface_antibody_antigen,Mock antibody antigen
