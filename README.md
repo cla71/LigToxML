@@ -74,6 +74,7 @@ All commands live under the `af3-panel` Typer app (or `python -m src.cli` when r
 
 Outputs land in `results/run_xxx/off_target_hits.csv` plus per-target JSON details. Replace `--receptor-mode` with `af3_or_pdb` when you have locally cached AF3 models and want to prioritize them.
 
+
 ## Mock dataset (practice workflow)
 To make the workflow easier to try, a tiny mock dataset is provided under `af3_offtarget_panel/data/mock`. It is intentionally small and synthetic so you can run the full pipeline without downloading real FoldBench data.
 
@@ -109,9 +110,12 @@ af3-panel screen \
 - This dataset exists to demonstrate file formats and flow, not scientific accuracy.
 - Results are written under `data/mock/results/` so they do not mix with real runs.
 
+
+
 ## Notes on structure sources
 - PDB assemblies are downloaded from RCSB using the assembly ID; an existing file will be reused.
 - AF3 models are treated as alternate receptor geometries when present locally (expected under `data/structures/af3_models`).
 
 ## Mock docking rationale
 The pipeline ships with a deterministic placeholder scorer so it is fully self-contained. The scoring hook lives in `src/docking/screen.py` and can be swapped for Vina/Smina/Gnina subprocess calls without touching the CLI interface.
+
