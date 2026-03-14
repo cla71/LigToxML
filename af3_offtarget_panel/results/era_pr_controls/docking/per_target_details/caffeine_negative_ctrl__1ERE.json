@@ -1,0 +1,18 @@
+{
+  "compound_id": "caffeine_negative_ctrl",
+  "smiles": "CN1C=NC2=C1C(=O)N(C)C(=O)N2C",
+  "score": -5.514845368682769,
+  "confidence": "low",
+  "pocket": {
+    "pdb_assembly_id": "1ERE",
+    "protein_chain_id": "A",
+    "ligand_id": "EST",
+    "receptor_path": "results/era_pr_controls/structures/1ERE.cif",
+    "center": [
+      100.5,
+      16.7,
+      26.3
+    ],
+    "qc_flags": []
+  }
+}

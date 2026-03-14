@@ -1,0 +1,18 @@
+{
+  "compound_id": "estradiol_positive_ctrl",
+  "smiles": "OC1CCC2C(CCC3C2CCC4(C3)C(O)CC4)=C1",
+  "score": -6.958760101884261,
+  "confidence": "medium",
+  "pocket": {
+    "pdb_assembly_id": "1A28",
+    "protein_chain_id": "A",
+    "ligand_id": "STR",
+    "receptor_path": "results/era_pr_controls/structures/1A28.cif",
+    "center": [
+      28.3,
+      0.8,
+      37.1
+    ],
+    "qc_flags": []
+  }
+}

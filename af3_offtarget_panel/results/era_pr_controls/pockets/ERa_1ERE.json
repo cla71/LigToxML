@@ -1,0 +1,35 @@
+{
+  "pdb_assembly_id": "1ERE",
+  "protein_chain_id": "A",
+  "ligand_id": "EST",
+  "center": [
+    100.5,
+    16.7,
+    26.3
+  ],
+  "box_size": [
+    18.0,
+    16.0,
+    14.0
+  ],
+  "residues": [
+    "A:GLU353",
+    "A:ARG394",
+    "A:PHE404",
+    "A:MET388",
+    "A:LEU387",
+    "A:ALA350",
+    "A:LEU346",
+    "A:THR347",
+    "A:LEU525",
+    "A:HIS524",
+    "A:LEU391",
+    "A:ILE424",
+    "A:GLY521",
+    "A:MET421",
+    "A:LEU428",
+    "A:PHE425"
+  ],
+  "receptor_path": "results/era_pr_controls/structures/1ERE.cif",
+  "qc_flags": []
+}

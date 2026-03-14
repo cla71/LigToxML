@@ -1,0 +1,35 @@
+{
+  "pdb_assembly_id": "1A28",
+  "protein_chain_id": "A",
+  "ligand_id": "STR",
+  "center": [
+    28.3,
+    0.8,
+    37.1
+  ],
+  "box_size": [
+    18.0,
+    16.0,
+    15.0
+  ],
+  "residues": [
+    "A:GLN725",
+    "A:ARG766",
+    "A:LEU718",
+    "A:MET759",
+    "A:PHE778",
+    "A:LEU797",
+    "A:MET801",
+    "A:THR894",
+    "A:LEU887",
+    "A:MET756",
+    "A:LEU763",
+    "A:CYS891",
+    "A:TRP755",
+    "A:ASN719",
+    "A:MET909",
+    "A:PHE905"
+  ],
+  "receptor_path": "results/era_pr_controls/structures/1A28.cif",
+  "qc_flags": []
+}

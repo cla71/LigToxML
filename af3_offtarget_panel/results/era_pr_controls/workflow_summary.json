@@ -1,0 +1,143 @@
+{
+  "workflow": "ER\u03b1/PR docking with positive and negative controls",
+  "proteins": {
+    "ER\u03b1": {
+      "pdb": "1ERE",
+      "description": "Estrogen Receptor alpha LBD"
+    },
+    "PR": {
+      "pdb": "1A28",
+      "description": "Progesterone Receptor LBD"
+    }
+  },
+  "controls": {
+    "positive": {
+      "name": "Estradiol (E2)",
+      "smiles": "OC1CCC2C(CCC3C2CCC4(C3)C(O)CC4)=C1",
+      "rationale": "Natural ER\u03b1 agonist, Kd \u2248 0.1 nM"
+    },
+    "negative": {
+      "name": "Caffeine",
+      "smiles": "CN1C=NC2=C1C(=O)N(C)C(=O)N2C",
+      "rationale": "Adenosine receptor antagonist, no NHR activity"
+    }
+  },
+  "results": [
+    {
+      "compound_id": "caffeine_negative_ctrl",
+      "smiles": "CN1C=NC2=C1C(=O)N(C)C(=O)N2C",
+      "pdb_assembly_id": "1A28",
+      "protein_chain_id": "A",
+      "ligand_id": "STR",
+      "score": -5.653177656375077,
+      "confidence": "low",
+      "receptor_mode": "pdb",
+      "qc_flags": NaN
+    },
+    {
+      "compound_id": "caffeine_negative_ctrl",
+      "smiles": "CN1C=NC2=C1C(=O)N(C)C(=O)N2C",
+      "pdb_assembly_id": "1ERE",
+      "protein_chain_id": "A",
+      "ligand_id": "EST",
+      "score": -5.514845368682769,
+      "confidence": "low",
+      "receptor_mode": "pdb",
+      "qc_flags": NaN
+    },
+    {
+      "compound_id": "estradiol_positive_ctrl",
+      "smiles": "OC1CCC2C(CCC3C2CCC4(C3)C(O)CC4)=C1",
+      "pdb_assembly_id": "1A28",
+      "protein_chain_id": "A",
+      "ligand_id": "STR",
+      "score": -6.958760101884261,
+      "confidence": "medium",
+      "receptor_mode": "pdb",
+      "qc_flags": NaN
+    },
+    {
+      "compound_id": "estradiol_positive_ctrl",
+      "smiles": "OC1CCC2C(CCC3C2CCC4(C3)C(O)CC4)=C1",
+      "pdb_assembly_id": "1ERE",
+      "protein_chain_id": "A",
+      "ligand_id": "EST",
+      "score": -6.927238492961794,
+      "confidence": "medium",
+      "receptor_mode": "pdb",
+      "qc_flags": NaN
+    }
+  ],
+  "pocket_definitions": {
+    "ERa_1ERE": {
+      "pdb_assembly_id": "1ERE",
+      "protein_chain_id": "A",
+      "ligand_id": "EST",
+      "center": [
+        100.5,
+        16.7,
+        26.3
+      ],
+      "box_size": [
+        18.0,
+        16.0,
+        14.0
+      ],
+      "residues": [
+        "A:GLU353",
+        "A:ARG394",
+        "A:PHE404",
+        "A:MET388",
+        "A:LEU387",
+        "A:ALA350",
+        "A:LEU346",
+        "A:THR347",
+        "A:LEU525",
+        "A:HIS524",
+        "A:LEU391",
+        "A:ILE424",
+        "A:GLY521",
+        "A:MET421",
+        "A:LEU428",
+        "A:PHE425"
+      ],
+      "receptor_path": "results/era_pr_controls/structures/1ERE.cif",
+      "qc_flags": []
+    },
+    "PR_1A28": {
+      "pdb_assembly_id": "1A28",
+      "protein_chain_id": "A",
+      "ligand_id": "STR",
+      "center": [
+        28.3,
+        0.8,
+        37.1
+      ],
+      "box_size": [
+        18.0,
+        16.0,
+        15.0
+      ],
+      "residues": [
+        "A:GLN725",
+        "A:ARG766",
+        "A:LEU718",
+        "A:MET759",
+        "A:PHE778",
+        "A:LEU797",
+        "A:MET801",
+        "A:THR894",
+        "A:LEU887",
+        "A:MET756",
+        "A:LEU763",
+        "A:CYS891",
+        "A:TRP755",
+        "A:ASN719",
+        "A:MET909",
+        "A:PHE905"
+      ],
+      "receptor_path": "results/era_pr_controls/structures/1A28.cif",
+      "qc_flags": []
+    }
+  }
+}

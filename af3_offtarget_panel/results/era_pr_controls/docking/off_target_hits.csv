@@ -1,0 +1,5 @@
+compound_id,smiles,pdb_assembly_id,protein_chain_id,ligand_id,score,confidence,receptor_mode,qc_flags
+caffeine_negative_ctrl,CN1C=NC2=C1C(=O)N(C)C(=O)N2C,1A28,A,STR,-5.653177656375077,low,pdb,
+caffeine_negative_ctrl,CN1C=NC2=C1C(=O)N(C)C(=O)N2C,1ERE,A,EST,-5.514845368682769,low,pdb,
+estradiol_positive_ctrl,OC1CCC2C(CCC3C2CCC4(C3)C(O)CC4)=C1,1A28,A,STR,-6.958760101884261,medium,pdb,
+estradiol_positive_ctrl,OC1CCC2C(CCC3C2CCC4(C3)C(O)CC4)=C1,1ERE,A,EST,-6.927238492961794,medium,pdb,
