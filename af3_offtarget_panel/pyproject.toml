@@ -1,7 +1,7 @@
 [project]
 name = "af3-offtarget-panel"
-version = "0.1.0"
-description = "Local-first AF3/PDB off-target screening pipeline"
+version = "0.2.0"
+description = "AI-driven molecular docking and off-target screening pipeline"
 authors = [{ name = "PredTOX" }]
 readme = "README.md"
 requires-python = ">=3.10"
@@ -11,16 +11,33 @@ dependencies = [
   "requests>=2.31.0",
   "tqdm>=4.66.0",
   "pyyaml>=6.0.0",
-  "biopython>=1.84"
+  "biopython>=1.84",
+  "rich>=13.0.0"
 ]
 
 [project.optional-dependencies]
 chem = [
   "rdkit-pypi>=2023.9.6"
 ]
+docking = [
+  "rdkit-pypi>=2023.9.6",
+  "meeko>=0.5.0"
+]
+alphafold = [
+  "colabfold>=1.5.0",
+  "jax>=0.4.0"
+]
+esmfold = [
+  "transformers>=4.30.0",
+  "torch>=2.0.0"
+]
+all = [
+  "af3-offtarget-panel[chem,docking]"
+]
 
 [project.scripts]
 af3-panel = "src.cli:app"
+af3-agent = "src.agents.cli:app"
 
 [build-system]
 requires = ["setuptools>=61.0"]

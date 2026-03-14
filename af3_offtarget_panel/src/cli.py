@@ -11,8 +11,10 @@ from .panel.panel_builder import build_panel
 from .pockets.builder import build_pockets
 from .structures.downloader import fetch_structures
 from .docking.screen import screen
+from .agents.cli import app as agent_app
 
 app = typer.Typer(help="AF3/PDB off-target screening pipeline")
+app.add_typer(agent_app, name="agent", help="AI-driven agentic docking system")
 console = Console()
 logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
 

@@ -7,9 +7,41 @@ panel:
 structures:
   pdb_dir: data/structures/pdb_assemblies
   af3_dir: data/structures/af3_models
+  alphafold_predictions: data/structures/alphafold_predictions
 pockets:
   output_dir: data/pockets
 screen:
   compounds: inputs/compounds.smi
   receptor_mode: pdb
   output_dir: results/run_000
+
+# --- Agentic AI system configuration ---
+agent:
+  # Ollama server endpoint
+  ollama_base_url: http://localhost:11434
+
+  # Qwen models for the agentic system
+  orchestrator_model: qwen3:8b      # Heavy reasoning and planning
+  worker_model: qwen3:4b            # Lightweight tasks (parsing, interpretation)
+
+  # Agent behaviour
+  max_steps: 30
+  temperature: 0.3
+  step_pause_seconds: 0.5
+
+  # Docking defaults
+  docking:
+    method: vina                    # vina, diffdock, or batch
+    exhaustiveness: 8
+    num_modes: 9
+    energy_range: 3.0
+    score_threshold: -6.0           # kcal/mol threshold for flagging hits
+
+  # AlphaFold structure prediction
+  alphafold:
+    enabled: false                  # Set to true to enable AF predictions
+    prefer_method: alphafold_db     # alphafold_db, colabfold, or esmfold
+    use_amber_relax: false
+
+  # Output
+  results_dir: results/agent_runs
